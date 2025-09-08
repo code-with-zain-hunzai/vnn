@@ -58,6 +58,11 @@ export default {
 					dark: 'hsl(var(--tech-blue-dark))',
 					light: 'hsl(var(--tech-blue-light))'
 				},
+				'custom': {
+					red: 'hsl(var(--custom-red))',
+					'dark-blue': 'hsl(var(--custom-dark-blue))',
+					'dark-gray': 'hsl(var(--custom-dark-gray))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

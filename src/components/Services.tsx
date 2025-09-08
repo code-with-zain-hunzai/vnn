@@ -7,112 +7,150 @@ import cloudImage from '@/assets/cloud-datacenter.jpeg';
 const Services = () => {
   const services = [
     {
-      icon: Satellite,
-      title: 'Satellite Services',
-      description: 'Global satellite capacity, teleport services, and IoT connectivity solutions.',
-      image: fiberImage,
-      features: ['C-band & Ku-band capacity', 'Global coverage', 'Redundant uplinks', 'Custom solutions']
+      title: "Distribution",
+      image: "/dish.png",
+      features: [
+        "Satellite Distribution",
+        "Fiber & IP Distribution Networks",
+        "DTT & Streaming Distribution",
+        "Broadcast Contribution Services",
+        "Remote Production"
+      ]
     },
     {
-      icon: Radio,
-      title: 'Broadcast Solutions',
-      description: 'End-to-end broadcast services including distribution, playout, and creative services.',
-      image: controlRoomImage,
-      features: ['HD/4K distribution', 'Live event coverage', 'Content management', 'Global reach']
+      title: "Playout",
+      image: "/playout.png",
+      features: [
+        "Channel Playout (SD/HD/UHD/4K)",
+        "Cloud & Virtualized Playout",
+        "Multi-Platform Delivery",
+        "Content Compliance & Monitoring",
+        "End-to-End Managed Services"
+      ]
     },
     {
-      icon: Cloud,
-      title: 'Cloud Infrastructure',
-      description: 'Scalable cloud solutions for media processing, storage, and distribution.',
-      image: cloudImage,
-      features: ['Auto-scaling', 'CDN integration', 'Security compliance', '24/7 monitoring']
+      title: "Creative",
+      image: "/creative.png",
+      features: [
+        "Digital and Live Highlights Creation",
+        "Graphics & Motion Design",
+        "Content Localization & Versioning",
+        "Promos & Creative Packaging",
+        "Studio Support"
+      ]
     },
     {
-      icon: Network,
-      title: 'Network Services',
-      description: 'High-performance fiber and IP networks for reliable connectivity.',
-      image: fiberImage,
-      features: ['Fiber backbone', 'IP transit', 'MPLS networks', 'Bandwidth on demand']
+      title: "Cloud",
+      image: "/cloud.png",
+      features: [
+        "Cloud Connect Services",
+        "Hybrid & Multi-Cloud Integration",
+        "Cloud-Based Media Processing",
+        "Cloud Storage & Archiving"
+      ]
     },
     {
-      icon: Shield,
-      title: 'Enterprise Security',
-      description: 'Comprehensive security solutions for media and enterprise applications.',
-      image: cloudImage,
-      features: ['End-to-end encryption', 'Secure transport', 'Compliance ready', 'Threat monitoring']
+      title: "Satellite & IoT",
+      image: "/satellite.png",
+      features: [
+        "VSAT/LEO/MEO/GEO Connectivity",
+        "Broadband-Over-Satellite",
+        "IoT Device and Connectivity Management",
+        "IoT Data Integration & Analytics",
+        "IoT Asset Tracking & Remote Monitoring"
+      ]
     },
     {
-      icon: Settings,
-      title: 'Asset Management',
-      description: 'Digital asset management and workflow automation for media organizations.',
-      image: controlRoomImage,
-      features: ['Automated workflows', 'Content library', 'Metadata management', 'API integration']
+      title: "Network",
+      image: "/dish.png",
+      features: [
+        "Managed L1/L2 Services",
+        "Managed WAN/Hybrid Services",
+        "Private Network or Internet Services",
+        "IP Transit & Peering Services"
+      ]
+    },
+    {
+      title: "Asset Mgmt",
+      image: "/drive.png",
+      features: [
+        "Media Storage Services",
+        "Content CDN and Security Services",
+        "Signal Encryption & Conditional Access",
+        "Media Ingest & Transcoding",
+        "Digital Right Management (DRM)"
+      ]
+    },
+    {
+      title: "Teleport",
+      image: "/teleport.png",
+      features: [
+        "Uplink & Downlink Services",
+        "Turn Around Services",
+        "Earth Station Services",
+        "VSAT Hub Platforms",
+        "Disaster Recovery"
+      ]
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-background">
-      <div className="section-container">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-tech-blue/10 text-tech-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-            Our Services
+    <section id="services" className="py-20 bg-background relative z-0">
+      <div
+        className="absolute inset-0 opacity-30 z-0"
+        style={{
+          backgroundImage: `url('/bgDot.svg')`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '600px 433px',
+          backgroundPosition: 'center',
+        }}
+      ></div>
+      <div className="relative pt-20">
+        <div className='absolute inset-0 left-0 bottom-10 z-0' style={{
+          backgroundImage: `url('/cable.svg')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '983px 438px',
+          backgroundPosition: 'center',
+          right: '1000px',
+          bottom: '1000px',
+        }}>
+
+          <div className='relative z-10 container pt-32 space-y-2'>
+            <h2 className='text-5xl max-w-3xl mx-auto font-bold leading-20 text-white'>Our Services</h2>
+            <p className='text-lg max-w-3xl mx-auto text-white'>Our services span the full media and connectivity ecosystem — from global content distribution to cloud, satellite, IoT, and network solutions. We deliver secure, scalable, and future-ready infrastructure tailored to your needs.</p>
           </div>
-          <h2 className="text-3xl lg:text-5xl font-heading font-bold text-foreground mb-6">
-            Comprehensive Media & 
-            <span className="text-primary block">Technology Solutions</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            From satellite services to cloud infrastructure, we provide the complete technology stack 
-            for modern media and enterprise communications.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 container pt-60 relative z-50 ">
           {services.map((service, index) => (
-            <div key={index} className="service-card group">
-              <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
-                <img 
-                  src={service.image} 
+            <div key={index} className="shadow-lg rounded-tl flex flex-col h-full">
+              <div className="relative mb-6 rounded-lg overflow-hidden">
+                <img
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-                <div className="absolute bottom-4 left-4">
-                  <div className="bg-primary/20 backdrop-blur-sm p-3 rounded-lg">
-                    <service.icon className="h-6 w-6 text-primary" />
-                  </div>
+              </div>
+              <div className='px-6 py-4 flex-1 flex flex-col'>
+                <h3 className="text-xl font-heading font-bold text-foreground mb-3">
+                  {service.title}
+                </h3>
+                <ul className="space-y-2 mb-6 flex-1">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-black rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto">
+                  <Button variant="outline" className="text-custom-red border-custom-red border-none underline gap-2">
+                    Read More
+                  </Button>
                 </div>
               </div>
-
-              <h3 className="text-xl font-heading font-bold text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                {service.description}
-              </p>
-
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Button variant="ghost" className="group/btn">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Button>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button variant="tech" size="xl">
-            View All Services
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
         </div>
       </div>
     </section>
