@@ -1,176 +1,188 @@
 "use client";
 import { useState } from "react";
-
-export default function ServicesPage() {
-  const [activeService, setActiveService] = useState("Distribution");
-
-  const navigationItems = [
-    "Distribution",
-    "Payout",
-    "Creative",
-    "Cloud",
-    "Satellite & IoT",
-    "Network",
-    "Asst Mgmt",
-    "Teleport",
+import { Button } from "@/components/ui/button";
+import GetTouch from "./getTouch";
+const Services = () => {
+  const services = [
+    {
+      title: "Distribution",
+      image: "/dish.png",
+      features: [
+        "Satellite Distribution",
+        "Fiber & IP Distribution Networks",
+        "DTT & Streaming Distribution",
+        "Broadcast Contribution Services",
+        "Remote Production",
+      ],
+    },
+    {
+      title: "Playout",
+      image: "/playout.png",
+      features: [
+        "Channel Playout (SD/HD/UHD/4K)",
+        "Cloud & Virtualized Playout",
+        "Multi-Platform Delivery",
+        "Content Compliance & Monitoring",
+        "End-to-End Managed Services",
+      ],
+    },
+    {
+      title: "Creative",
+      image: "/creative.png",
+      features: [
+        "Digital and Live Highlights Creation",
+        "Graphics & Motion Design",
+        "Content Localization & Versioning",
+        "Promos & Creative Packaging",
+        "Studio Support",
+      ],
+    },
+    {
+      title: "Cloud",
+      image: "/cloud.png",
+      features: [
+        "Cloud Connect Services",
+        "Hybrid & Multi-Cloud Integration",
+        "Cloud-Based Media Processing",
+        "Cloud Storage & Archiving",
+      ],
+    },
+    {
+      title: "Satellite & IoT",
+      image: "/satellite.png",
+      features: [
+        "VSAT/LEO/MEO/GEO Connectivity",
+        "Broadband-Over-Satellite",
+        "IoT Device and Connectivity Management",
+        "IoT Data Integration & Analytics",
+        "IoT Asset Tracking & Remote Monitoring",
+      ],
+    },
+    {
+      title: "Network",
+      image: "/dish.png",
+      features: [
+        "Managed L1/L2 Services",
+        "Managed WAN/Hybrid Services",
+        "Private Network or Internet Services",
+        "IP Transit & Peering Services",
+      ],
+    },
+    {
+      title: "Asset Mgmt",
+      image: "/drive.png",
+      features: [
+        "Media Storage Services",
+        "Content CDN and Security Services",
+        "Signal Encryption & Conditional Access",
+        "Media Ingest & Transcoding",
+        "Digital Right Management (DRM)",
+      ],
+    },
+    {
+      title: "Teleport",
+      image: "/teleport.png",
+      features: [
+        "Uplink & Downlink Services",
+        "Turn Around Services",
+        "Earth Station Services",
+        "VSAT Hub Platforms",
+        "Disaster Recovery",
+      ],
+    },
   ];
 
   return (
-    <div className=" container mx-auto">
-      <div className="flex">
-        {/* Left Sidebar Navigation */}
-        <div className="w-64 bg-white border-r-4 border-gray-200 min-h-screen p-6">
-          <nav className="space-y-2 font-medium">
-            {navigationItems.map((item) => (
-              <button
-                key={item}
-                onClick={() => setActiveService(item)}
-                className={`w-full text-left px-4 py-3 rounded-full text-sm font-bold transition-colors ${
-                  activeService === item
-                    ? "bg-red-500 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-          </nav>
+    <section id="services" className="py-20 bg-background relative z-0">
+      <div
+        className="absolute inset-0 opacity-30 z-0"
+        style={{
+          backgroundImage: `url('/bgDot.svg')`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "600px 433px",
+          backgroundPosition: "center",
+        }}
+      ></div>
+      <div className="relative pt-20">
+        <div
+          className="absolute inset-0 left-0 bottom-10 z-0"
+          style={{
+            backgroundImage: `url('/cable.svg')`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "983px 438px",
+            backgroundPosition: "center",
+            right: "1000px",
+            bottom: "1000px",
+          }}
+        >
+          <div className="relative z-10 container pt-32 space-y-2">
+            <h2 className="text-5xl max-w-3xl mx-auto font-bold leading-20 text-white">
+              Our Services
+            </h2>
+            <p className="text-lg max-w-3xl mx-auto text-white">
+              Our services span the full media and connectivity ecosystem — from
+              global content distribution to cloud, satellite, IoT, and network
+              solutions. We deliver secure, scalable, and future-ready
+              infrastructure tailored to your needs.
+            </p>
+          </div>
         </div>
 
-        {/* Main Content Area */}
-        <div className="flex-1 ml-12">
-          {/* Header Section */}
-          <div className="relative">
-            <img
-              src="/services.png"
-              alt="Services background"
-              className=" w-full h-96 object-cover"
-            />
-
-            <div className="absolute inset-0  bg-opacity-50 flex items-center">
-              <div className="flex items-center justify-between  w-full px-12">
-                <div className="flex-1 text-white">
-                  <h1 className="text-4xl font-bold text-red-500 mb-4">
-                    Distribution
-                  </h1>
-                  <h2 className="text-xl font-semibold mb-4">
-                    Why Choose Our Distribution Services
-                  </h2>
-                  <ul className="space-y-2 text-sm">
-                    <li>• 99.99% uptime with 24/7 network monitoring</li>
-                    <li>
-                      • Access to global satellite, fiber, and IP infrastructure
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 container pt-60 relative z-50 ">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="shadow-lg rounded-tl flex flex-col h-full"
+            >
+              <div className="relative mb-6 rounded-lg overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="px-6 py-4 flex-1 flex flex-col">
+                <h3 className="text-xl font-heading font-bold text-foreground mb-3">
+                  {service.title}
+                </h3>
+                <ul className="space-y-2 mb-6 flex-1">
+                  {service.features.map((feature, featureIndex) => (
+                    <li
+                      key={featureIndex}
+                      className="flex items-center text-sm text-muted-foreground"
+                    >
+                      <div className="w-1.5 h-1.5 bg-black rounded-full mr-3"></div>
+                      {feature}
                     </li>
-                    <li>
-                      • Proven expertise in sports, live events, and broadcast
-                      networks
-                    </li>
-                    <li>
-                      • Reliable delivery across broadcast, OTT, and hybrid
-                      platforms
-                    </li>
-                    <li>
-                      • End-to-end service — from encoding to last-mile
-                      distribution
-                    </li>
-                  </ul>
-                </div>
-                <div className="ml-8 -mb-[280px]">
-                  <img
-                    src="/services1.png"
-                    alt="Satellite dish"
-                    className="w-[400px] h-[400px] object-cover rounded-lg "
-                  />
+                  ))}
+                </ul>
+                <div className="mt-auto">
+                  <Button
+                    variant="outline"
+                    className="text-custom-red border-custom-red border-none underline gap-2"
+                  >
+                    Read More
+                  </Button>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Content Sections */}
-          <div className="max-w-6xl mx-auto  pt-8 space-y-8">
-            <section>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Distribution Services
-              </h3>
-              <p className="text-gray-700 leading-relaxed w-[600px]">
-                Our distribution services are designed with global reliability
-                and global reach. Whether through satellite, fiber, IP, or OTT
-                platforms, our distribution solutions guarantee that your
-                audience receives high-quality content — anywhere in the world,
-                on any device.
-              </p>
-            </section>
-
-            <section>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Fiber & IP Distribution Networks
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Our managed fiber and IP backbone connects major broadcast hubs,
-                ensuring low latency, high-capacity delivery of live and
-                on-demand content. From contribution feeds to multi-region
-                distribution, we deliver content with speed, security, and
-                carrier-grade performance.
-              </p>
-            </section>
-
-            <section>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Broadcast Contribution Services
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                From breaking news to live sporting events, we specialize in
-                contribution feeds and remote integration. Our solutions cover
-                DSNG uplinks, IP contribution, and global distribution of live
-                feeds — delivering your content where it's needed, with
-                broadcast-grade quality and ultra-low latency.
-              </p>
-            </section>
-
-            <section>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Satellite Distribution
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                We provide global uplink, downlink, and turnaround services for
-                broadcasters, media networks, and live event organizers. With
-                access to leading GEO, MEO, and LEO satellites, we deliver
-                seamless coverage, resilient redundancy, and 24/7 monitored
-                reliability.
-              </p>
-            </section>
-
-            <section>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                OTT & Streaming Distribution
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                We help content owners and platforms reach audiences directly
-                via OTT and streaming services. Our workflows include encoding,
-                adaptive bitrate (ABR) packaging, CDN integration, and
-                multi-device delivery — ensuring your content scales smoothly
-                across web, mobile, and smart TVs.
-              </p>
-            </section>
-
-            <section>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Remote Production
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                We enable broadcasters and event organizers to produce live
-                content remotely, reducing on-site costs while maintaining
-                quality. By combining IP contribution, cloud integration, and
-                remote switching, we help you cover events more efficiently,
-                flexibly, and securely.
-              </p>
-            </section>
-          </div>
+          ))}
         </div>
       </div>
+      <section />
 
+      <div className="container pt-32">
+        <h2 className="text-5xl font-bold text-white">Get in Touch</h2>
+        <p className="text-lg text-white">
+          Ready to take your media and connectivity solutions to the next level?
+          Contact us today to learn more about our services and how we can help
+          you achieve your goals.
+        </p>
+      </div>
 
-      
-    </div>
+      <GetTouch />
+    </section>
   );
-}
+};
+
+export default Services;

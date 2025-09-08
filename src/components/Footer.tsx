@@ -1,139 +1,107 @@
-import { Satellite, Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from 'lucide-react';
+import { Facebook, Phone, MapPin, Mail } from "lucide-react"
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const footerSections = [
-    {
-      title: 'Services',
-      links: [
-        'Satellite Services',
-        'Broadcast Solutions',
-        'Cloud Infrastructure',
-        'Network Services',
-        'Enterprise Security',
-        'Asset Management'
-      ]
-    },
-    {
-      title: 'Solutions',
-      links: [
-        'Broadcast',
-        'Sports',
-        'Telecom',
-        'Enterprise',
-        'Maritime/Aviation',
-        'Government/Defence'
-      ]
-    },
-    {
-      title: 'Company',
-      links: [
-        'About Us',
-        'Careers',
-        'Partners',
-        'Case Studies',
-        'News & Insights',
-        'Contact'
-      ]
-    },
-    {
-      title: 'Resources',
-      links: [
-        'Documentation',
-        'Support Center',
-        'Compliance',
-        'Security',
-        'API Reference',
-        'Downloads'
-      ]
-    }
-  ];
-
+export default function Footer() {
   return (
-    <footer className="bg-foreground text-background">
-      <div className="section-container py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center mb-6">
-              <Satellite className="h-8 w-8 text-primary mr-3" />
-              <div className="text-2xl font-heading font-bold">
-                <span className="text-primary">Video Vision</span> Media
-              </div>
-            </div>
-            <p className="text-background/80 mb-6 leading-relaxed">
-              Global leader in satellite services, broadcast solutions, and media technology. 
-              Connecting the world through advanced communication infrastructure.
+    <footer className="relative bg-[#191825] text-white">
+      {/* Main footer content */}
+      <div className="px-6 py-12 lg:px-20 container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {/* Logo and Description */}
+          <div className="lg:col-span-1">
+            <img src="/logo.svg" alt="logo" className="w-20 h-20 pb-5" />
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              Forem ipsum dolor sit amet, consectetur adipiscing elit.Forem ipsum dolor sit amet, consectetur adipiscing
+              elit.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center text-background/80">
-                <Mail className="h-4 w-4 mr-3 text-primary" />
-                info@videovisionmedia.com
+            <div className="flex gap-3">
+              <div className="w-8 h-8 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer">
+                <Facebook size={16} />
               </div>
-              <div className="flex items-center text-background/80">
-                <Phone className="h-4 w-4 mr-3 text-primary" />
-                +1 (555) 123-4567
-              </div>
-              <div className="flex items-center text-background/80">
-                <MapPin className="h-4 w-4 mr-3 text-primary" />
-                Silicon Valley, CA
+              <div className="w-8 h-8 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer">
+                <div className="w-4 h-4 bg-current rounded-sm"></div>
               </div>
             </div>
           </div>
 
-          {/* Footer Links */}
-          {footerSections.map((section, index) => (
-            <div key={index} className="lg:col-span-1">
-              <h3 className="font-heading font-semibold text-background mb-4">
-                {section.title}
-              </h3>
-              <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <a 
-                      href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="text-background/70 hover:text-primary transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+          {/* Navigation */}
+          <div className="lg:col-span-1">
+            <h3 className="text-white font-semibold text-lg mb-6">Navigation</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  About us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Solution
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Contact us
+                </a>
+              </li>
+            </ul>
+          </div>
 
-        <div className="border-t border-background/20 mt-12 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-center">
-            <div className="text-background/70 mb-4 lg:mb-0">
-              © {currentYear} Video Vision Media. All rights reserved.
-            </div>
-            
-            <div className="flex items-center space-x-6">
-              <a href="#" className="text-background/70 hover:text-primary transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-background/70 hover:text-primary transition-colors">
-                Terms of Service
-              </a>
-              <div className="flex items-center space-x-4 ml-6">
-                <a href="#" className="text-background/70 hover:text-primary transition-colors">
-                  <Linkedin className="h-5 w-5" />
+          {/* Quick Link */}
+          <div className="lg:col-span-1">
+            <h3 className="text-white font-semibold text-lg mb-6">Quick link</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Contact
                 </a>
-                <a href="#" className="text-background/70 hover:text-primary transition-colors">
-                  <Twitter className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-background/70 hover:text-primary transition-colors">
-                  <Youtube className="h-5 w-5" />
-                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Get in Touch */}
+          <div className="lg:col-span-1">
+            <h3 className="text-white font-semibold text-lg mb-6">Get in Touch</h3>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Phone size={18} />
+                </div>
+                <span className="text-gray-300 text-sm">123 456 789</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin size={18} />
+                </div>
+                <span className="text-gray-300 text-sm leading-relaxed">
+                  Vorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Mail size={18} />
+                </div>
+                <span className="text-gray-300 text-sm">abc123@gmail.com</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </footer>
-  );
-};
 
-export default Footer;
+      {/* Copyright */}
+      <div className="bg-[#2A2F3C] px-6 py-4 lg:px-20">
+        <p className="text-center text-gray-400 text-sm">
+          Copyright © 2025 <span className="text-white">video vision media</span>. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+  )
+}

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import GetTouch from "./getTouch";
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState("Broadcast & Media");
@@ -122,6 +123,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
+      <GetTouch />
     </div>
   );
 }

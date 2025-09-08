@@ -1,5 +1,5 @@
 import React from "react";
-
+import GetTouch from "./getTouch";
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white px-6 md:px-20 py-16 container mx-auto space-y-40">
@@ -78,7 +78,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      
+      <GetTouch />
     </div>
   );
 }
