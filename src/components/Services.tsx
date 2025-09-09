@@ -93,7 +93,15 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background relative z-0">
+    <section id="services" className=" bg-background relative z-0">
+
+      <div className="relative w-full">
+        <img src="/abouthero.png" alt="Coverage area" className="w-full" />
+        <h1 className="absolute inset-0 flex items-center justify-center text-white text-7xl font-bold">
+          Our Services
+        </h1>
+      </div>
+
       <div
         className="absolute inset-0 opacity-30 z-0"
         style={{

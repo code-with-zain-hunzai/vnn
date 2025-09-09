@@ -43,8 +43,16 @@ export default function ContactPage() {
   }
 
   return (
-    <div className=" container mx-auto py-16 ">
-      <div className=" mx-auto">
+    <>
+
+      <div className="relative w-full">
+        <img src="/abouthero.png" alt="Coverage area" className="w-full" />
+        <h1 className="absolute inset-0 flex items-center justify-center text-white text-7xl font-bold">
+          Contact Us
+        </h1>
+      </div>
+
+      <div className=" container mx-auto py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* FAQ Section */}
           <div className="space-y-8">
@@ -159,6 +167,6 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

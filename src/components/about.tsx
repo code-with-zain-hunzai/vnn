@@ -1,9 +1,22 @@
 import React from "react";
 import GetTouch from "./getTouch";
+import Stats from "./Stats";
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white px-6 md:px-20 py-16 container mx-auto space-y-40">
-      {/* About Us Section */}
+    <>
+      <div className="relative w-full">
+
+        <img src="/abouthero.png" alt="Coverage area" className="w-full" />
+        <div className="absolute inset-0 flex items-center justify-center text-white text-7xl font-bold">
+          <h1>About Us</h1>
+        </div>
+
+        
+        <p className="absolute inset-0  -mb-20"><Stats /></p>
+      </div>
+
+     <div className="container mx-auto mt-36 ">
+      {/* Cards Section */}
       <div className="grid md:grid-cols-2 gap-10 items-center">
         {/* Left - Image */}
         <div>
@@ -14,10 +27,13 @@ export default function AboutPage() {
           />
         </div>
 
-        {/* Right - Content */}
+    
+
         <div>
-          <span className="inline-block bg-red-600 text-white px-4 py-1 
-          rounded-full text-sm font-medium mb-4">
+          <span
+            className="inline-block bg-red-600 text-white px-4 py-1 
+          rounded-full text-sm font-medium mb-4"
+          >
             About us
           </span>
           <h2 className="text-3xl font-bold mb-4">Video Vision Media</h2>
@@ -45,12 +61,14 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Coverage Area Section */} 
-      <div className="grid md:grid-cols-2 gap-10 items-center  ">
+      {/* Coverage Area Section */}
+      <div className="grid md:grid-cols-2 gap-10 items-center  pt-40 ">
         {/* Left - Content */}
         <div>
-          <span className="inline-block bg-red-600 text-white px-4 py-1 rounded-full 
-          text-sm font-medium mb-4">
+          <span
+            className="inline-block bg-red-600 text-white px-4 py-1 rounded-full 
+          text-sm font-medium mb-4"
+          >
             Coverage Area
           </span>
           <h2 className="text-3xl font-bold mb-4">Video Vision Media</h2>
@@ -80,5 +98,6 @@ export default function AboutPage() {
 
       <GetTouch />
     </div>
+    </>
   );
 }
