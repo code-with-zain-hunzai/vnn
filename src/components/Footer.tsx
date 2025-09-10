@@ -2,7 +2,7 @@ import { Facebook, Phone, MapPin, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#191825] text-white">
+    <footer className="relative bg-[#191825] text-white pt-40">
       {/* Main footer content */}
       <div className="px-6 py-12 lg:px-20 container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -14,11 +14,11 @@ export default function Footer() {
               elit.
             </p>
             <div className="flex gap-3">
-              <div className="w-8 h-8 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer">
-                <Facebook size={16} />
+              <div className="w-8 h-8 border border-gray-500 rounded-full flex items-center justify-center hover:text-black transition-colors cursor-pointer">
+                <img src="/facebook.svg" alt="facebook" className="w-4 h-4" />
               </div>
-              <div className="w-8 h-8 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer">
-                <div className="w-4 h-4 bg-current rounded-sm"></div>
+              <div className="w-8 h-8 border border-gray-500 rounded-full flex items-center justify-center hover:text-black transition-colors cursor-pointer">
+                <img src="/tiktok.svg" alt="tiktok" className="w-4 h-4" />
               </div>
             </div>
           </div>
@@ -97,9 +97,9 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="bg-[#2A2F3C] px-6 py-4 lg:px-20">
+      <div className="bg-custom-dark-blue px-6 py-4 lg:px-20">
         <p className="text-center text-gray-400 text-sm">
-          Copyright © 2025 <span className="text-white">video vision media</span>. All Rights Reserved.
+          Copyright © 2025 <span className="text-white font-bold">video vision media</span>. All Rights Reserved.
         </p>
       </div>
     </footer>

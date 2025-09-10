@@ -2,7 +2,7 @@ import Stadium from '../../public/stadium.png';
 export default function Experience() {
     return (
         <section
-            className="relative min-h-[50vh] flex items-center justify-center py-20"
+            className="relative min-h-[50vh] flex items-center justify-center py-20 rounded-tl-[150px]"
             style={{
                 backgroundImage: 'url(/experience.png)',
                 backgroundSize: 'cover',
