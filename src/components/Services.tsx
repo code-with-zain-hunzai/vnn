@@ -115,7 +115,7 @@ const Services = () => {
           }}
         >
           <div className="relative z-10 container pt-32 space-y-2">
-            <h2 className="text-5xl max-w-3xl mx-auto font-bold leading-20 text-white">
+            <h2 className=" max-w-3xl mx-auto  leading-20 text-white font-montserrat font-bold text-5xl leading-tight tracking-normal text-center">
               Our Services
             </h2>
             <p className="text-lg max-w-3xl mx-auto text-white">
