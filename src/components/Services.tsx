@@ -98,9 +98,8 @@ const Services = () => {
         className="absolute inset-0 opacity-30 z-0"
         style={{
           backgroundImage: `url('/bgDot.svg')`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '600px 433px',
-          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'top',
         }}
       ></div>
       <div className="relative pt-20">
@@ -167,17 +166,6 @@ const Services = () => {
         </div>
       </div>
       <section />
-
-      <div className="container pt-32">
-        <h2 className="text-5xl font-bold text-white">Get in Touch</h2>
-        <p className="text-lg text-white">
-          Ready to take your media and connectivity solutions to the next level?
-          Contact us today to learn more about our services and how we can help
-          you achieve your goals.
-        </p>
-      </div>
-
-      <GetTouch />
     </section>
   );
 };

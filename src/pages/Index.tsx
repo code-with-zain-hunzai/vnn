@@ -1,7 +1,10 @@
-import { useEffect } from "react";
-import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import Experience from "@/components/experience";
+import { useEffect } from 'react';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Stats from '@/components/Stats';
+import Experience from '@/components/experience';
+import Support from '@/components/Support';
+import Solution from '@/components/Solution';
 
 const Index = () => {
   useEffect(() => {
@@ -10,14 +13,14 @@ const Index = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate");
+            entry.target.classList.add('animate');
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
 
-    const fadeElements = document.querySelectorAll(".fade-up");
+    const fadeElements = document.querySelectorAll('.fade-up');
     fadeElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -25,11 +28,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Hero />
-      <Stats />
-      <Stats />
-      <Experience />
-
+          <Hero />
+          <Stats /> 
+          <Services />
+          <Experience />
+          <Solution />
+          <Support />
     </div>
   );
 };
