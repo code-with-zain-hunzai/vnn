@@ -17,11 +17,11 @@ export default function ServicesPage() {
   return (
     <>
       <div className="relative w-full">
-        <img src="/abouthero.png" alt="Coverage area" className="w-full" />
+        <img src="/abouthero.png" alt="Coverage area" className="w-full h-[500px]" />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="text-7xl font-bold mb-4">Our Solutions</h1>
-          <p className="text-lg    max-w-4xl">
+          <h1 className="font-montserrat font-bold text-5xl leading-tight tracking-normal text-center mb-4 ">Our Solutions</h1>
+          <p className="font-montserrat font-normal text-base leading-6 tracking-normal text-center max-w-3xl">
             At Video Vision Media, we deliver solutions tailored to the
             industries we serve. From live sports to government communications,
             our expertise ensures content and connectivity are always reliable,

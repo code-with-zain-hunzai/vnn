@@ -6,10 +6,9 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ChevronDown, ChevronRight } from "lucide-react"
+import Support from "./Support"
 
 export default function ContactPage() {
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(3) // Fourth item expanded by default
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,21 +16,6 @@ export default function ContactPage() {
     phone: "",
     message: "",
   })
-
-  const faqs = [
-    { question: "where can i view my sales receipt?" },
-    { question: "how can i return an item?" },
-    { question: "will you restock items indicated?" },
-    {
-      question: "where can i ship my order?",
-      answer:
-        "Consectetur Cras Scelerisque Dis Nec Mi Vestibulum Ullamcorper Turpis Enim Natoque Tempus A Malesuada Suspendisse Iaculis Adipiscing Himenaeos Tincidunt.Tellus Pharetra Dis Nostra Urna A Scelerisque Id Parturient Ullamcorper Ullamcorper Class Ad Consectetur Tristique Et. Hendrerit Mollis Facilisi Odio A Montes Scelerisque A Scelerisque Justo A Praesent Conubia Aenean Mi Tempor.",
-    },
-  ]
-
-  const toggleFaq = (index: number) => {
-    setExpandedFaq(expandedFaq === index ? null : index)
-  }
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -44,44 +28,19 @@ export default function ContactPage() {
 
   return (
     <>
-
       <div className="relative w-full">
-        <img src="/abouthero.png" alt="Coverage area" className="w-full" />
-        <h1 className="absolute inset-0 flex items-center justify-center text-white text-7xl font-bold">
+        <img src="/abouthero.png" alt="Coverage area" className="w-full h-96 object-cover" />
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <h1 className="absolute inset-0 flex items-center justify-center text-white font-montserrat text-5xl leading-tight tracking-normal text-center font-bold drop-shadow-lg">
           Contact Us
         </h1>
       </div>
 
-      <div className=" container mx-auto py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* FAQ Section */}
+      <div className=" container mx-auto pt-24 pb-60">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Map Image Section */}
           <div className="space-y-8">
-            <div>
-              <p className="text-sm text-gray-500 uppercase tracking-wide mb-2">INFORMATION QUESTIONS</p>
-              <h1 className="text-3xl font-normal text-gray-900">Frequently asked questions</h1>
-            </div>
-
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="border-b border-gray-200 pb-4">
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="flex items-center justify-between w-full text-left py-2 group"
-                  >
-                    <span className="text-lg text-gray-900 font-normal">{faq.question}</span>
-                    {expandedFaq === index ? (
-                      <ChevronDown className="w-5 h-5 text-gray-600" />
-                    ) : (
-                      <ChevronRight className="w-5 h-5 text-gray-600" />
-                    )}
-                  </button>
-
-                  {expandedFaq === index && faq.answer && (
-                    <div className="mt-4 text-sm text-gray-700 leading-relaxed">{faq.answer}</div>
-                  )}
-                </div>
-              ))}
-            </div>
+            <img src="/contactmap.png" alt="Jakarta area map showing locations" className="w-full h-[540px] rounded-lg" />
           </div>
 
           {/* Contact Form Section */}
@@ -98,7 +57,7 @@ export default function ContactPage() {
                     type="text"
                     value={formData.firstName}
                     onChange={(e) => handleInputChange("firstName", e.target.value)}
-                    className="w-full bg-gray-100 border-0 rounded-md h-12"
+                    className="w-full bg-gray-100 border-0 rounded-md h-14"
                     required
                   />
                 </div>
@@ -111,7 +70,7 @@ export default function ContactPage() {
                     type="text"
                     value={formData.lastName}
                     onChange={(e) => handleInputChange("lastName", e.target.value)}
-                    className="w-full bg-gray-100 border-0 rounded-md h-12"
+                    className="w-full bg-gray-100 border-0 rounded-md h-14"
                     required
                   />
                 </div>
@@ -126,7 +85,7 @@ export default function ContactPage() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
-                    className="w-full bg-gray-100 border-0 rounded-md h-12"
+                    className="w-full bg-gray-100 border-0 rounded-md h-14"
                     required
                   />
                 </div>
@@ -139,7 +98,7 @@ export default function ContactPage() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
-                    className="w-full bg-gray-100 border-0 rounded-md h-12"
+                    className="w-full bg-gray-100 border-0 rounded-md h-14"
                     required
                   />
                 </div>
@@ -152,7 +111,7 @@ export default function ContactPage() {
                 <Textarea
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}
-                  className="w-full bg-gray-100 border-0 rounded-md min-h-32 resize-none"
+                  className="w-full bg-gray-100 border-0 rounded-md min-h-40 resize-none"
                   placeholder=""
                 />
               </div>
@@ -167,6 +126,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+      <Support />
     </>
   )
 }
