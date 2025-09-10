@@ -1,184 +1,172 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Globe } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+"use client"
 
-const Contact = () => {
+import type React from "react"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { ChevronDown, ChevronRight } from "lucide-react"
+
+export default function ContactPage() {
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(3) // Fourth item expanded by default
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
-  const { toast } = useToast();
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  })
+
+  const faqs = [
+    { question: "where can i view my sales receipt?" },
+    { question: "how can i return an item?" },
+    { question: "will you restock items indicated?" },
+    {
+      question: "where can i ship my order?",
+      answer:
+        "Consectetur Cras Scelerisque Dis Nec Mi Vestibulum Ullamcorper Turpis Enim Natoque Tempus A Malesuada Suspendisse Iaculis Adipiscing Himenaeos Tincidunt.Tellus Pharetra Dis Nostra Urna A Scelerisque Id Parturient Ullamcorper Ullamcorper Class Ad Consectetur Tristique Et. Hendrerit Mollis Facilisi Odio A Montes Scelerisque A Scelerisque Justo A Praesent Conubia Aenean Mi Tempor.",
+    },
+  ]
+
+  const toggleFaq = (index: number) => {
+    setExpandedFaq(expandedFaq === index ? null : index)
+  }
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', company: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: 'Global Headquarters',
-      details: ['123 Technology Drive', 'Silicon Valley, CA 94025', 'United States']
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      details: ['+1 (555) 123-4567', '+44 20 7123 4567', '24/7 Support Available']
-    },
-    {
-      icon: Mail,
-      title: 'Email',
-      details: ['info@videovisionmedia.com', 'sales@videovisionmedia.com', 'support@videovisionmedia.com']
-    },
-    {
-      icon: Globe,
-      title: 'Global Presence',
-      details: ['50+ Countries', 'Regional Offices Worldwide', 'Local Support Teams']
-    }
-  ];
+    e.preventDefault()
+    console.log("Form submitted:", formData)
+  }
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="section-container">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            Get In Touch
-          </div>
-          <h2 className="text-3xl lg:text-5xl font-heading font-bold text-foreground mb-6">
-            Ready to Transform Your 
-            <span className="text-primary block">Media Infrastructure?</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Let's discuss how our global satellite and media technology solutions can accelerate your business.
-          </p>
-        </div>
+    <>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+      <div className="relative w-full">
+        <img src="/abouthero.png" alt="Coverage area" className="w-full" />
+        <h1 className="absolute inset-0 flex items-center justify-center text-white text-7xl font-bold">
+          Contact Us
+        </h1>
+      </div>
+
+      <div className=" container mx-auto py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* FAQ Section */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
-                Connect With Our Global Team
-              </h3>
-              <p className="text-muted-foreground mb-8">
-                With offices and partners worldwide, we're always close by to provide expert consultation 
-                and support for your media technology needs.
-              </p>
+              <p className="text-sm text-gray-500 uppercase tracking-wide mb-2">INFORMATION QUESTIONS</p>
+              <h1 className="text-3xl font-normal text-gray-900">Frequently asked questions</h1>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="bg-card border border-border rounded-xl p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-primary/10 p-3 rounded-lg mr-4">
-                      <info.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h4 className="font-semibold text-foreground">{info.title}</h4>
-                  </div>
-                  <div className="space-y-1">
-                    {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-sm text-muted-foreground">
-                        {detail}
-                      </p>
-                    ))}
-                  </div>
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border-b border-gray-200 pb-4">
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="flex items-center justify-between w-full text-left py-2 group"
+                  >
+                    <span className="text-lg text-gray-900 font-normal">{faq.question}</span>
+                    {expandedFaq === index ? (
+                      <ChevronDown className="w-5 h-5 text-gray-600" />
+                    ) : (
+                      <ChevronRight className="w-5 h-5 text-gray-600" />
+                    )}
+                  </button>
+
+                  {expandedFaq === index && faq.answer && (
+                    <div className="mt-4 text-sm text-gray-700 leading-relaxed">{faq.answer}</div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-card border border-border rounded-xl p-8">
-            <h3 className="text-xl font-heading font-bold text-foreground mb-6">
-              Send Us a Message
-            </h3>
-            
+          {/* Contact Form Section */}
+          <div className="space-y-8">
+            <h2 className="text-3xl font-normal text-gray-900">Personal Information</h2>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Full Name *
+                  <label className="block text-sm text-gray-700 mb-2">
+                    First Name <span className="text-red-500">*</span>
                   </label>
                   <Input
-                    id="name"
-                    name="name"
                     type="text"
+                    value={formData.firstName}
+                    onChange={(e) => handleInputChange("firstName", e.target.value)}
+                    className="w-full bg-gray-100 border-0 rounded-md h-12"
                     required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
                   />
                 </div>
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
+                  <label className="block text-sm text-gray-700 mb-2">
+                    Last Name <span className="text-red-500">*</span>
                   </label>
                   <Input
-                    id="email"
-                    name="email"
-                    type="email"
+                    type="text"
+                    value={formData.lastName}
+                    onChange={(e) => handleInputChange("lastName", e.target.value)}
+                    className="w-full bg-gray-100 border-0 rounded-md h-12"
                     required
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <Input
+                    type="email"
                     value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@company.com"
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    className="w-full bg-gray-100 border-0 rounded-md h-12"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">
+                    Phone <span className="text-red-500">*</span>
+                  </label>
+                  <Input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange("phone", e.target.value)}
+                    className="w-full bg-gray-100 border-0 rounded-md h-12"
+                    required
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                  Company
-                </label>
-                <Input
-                  id="company"
-                  name="company"
-                  type="text"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Your Company Name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message *
+                <label className="block text-sm text-gray-700 mb-2">
+                  Your Message (Optional) <span className="text-red-500">*</span>
                 </label>
                 <Textarea
-                  id="message"
-                  name="message"
-                  required
                   value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project requirements..."
-                  className="min-h-[120px]"
+                  onChange={(e) => handleInputChange("message", e.target.value)}
+                  className="w-full bg-gray-100 border-0 rounded-md min-h-32 resize-none"
+                  placeholder=""
                 />
               </div>
 
-              <Button type="submit" variant="default" size="lg" className="w-full">
-                Send Message
+              <Button
+                type="submit"
+                className="w-full bg-gray-800 hover:bg-gray-900 text-white font-medium py-4 rounded-md text-base"
+              >
+                Submit Now
               </Button>
             </form>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
-
-export default Contact;
+    </>
+  )
+}
