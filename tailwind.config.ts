@@ -79,6 +79,7 @@ export default {
 				body: 'var(--font-body)',
 				railway: 'var(--font-railway)',
 				poppins: 'var(--font-poppins)',
+				montserrat: 'var(--font-montserrat)',
 				'base-neue': 'var(--font-base-neue)'
 			},
 			backgroundImage: {

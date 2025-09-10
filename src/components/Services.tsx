@@ -127,42 +127,44 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 container pt-60 relative z-50 ">
-          {services.map((service, index) => (
-            <div key={index} className="shadow-lg rounded-tl flex flex-col h-full">
-              <div className="relative mb-6 rounded-lg overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="px-6 py-4 flex-1 flex flex-col">
-                <h3 className="text-xl font-heading font-bold text-foreground mb-3">
-                  {service.title}
-                </h3>
-                <ul className="space-y-2 mb-6 flex-1">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-center text-sm text-muted-foreground"
+        <div className="py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 container pt-40 relative z-50 ">
+            {services.map((service, index) => (
+              <div key={index} className="shadow-lg rounded-tl-full flex flex-col h-full bg-white">
+                <div className="relative mb-6 rounded-lg overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="px-6 py-4 flex-1 flex flex-col">
+                  <h3 className="text-lg font-bold font-base-neue text-foreground mb-3">
+                    {service.title}
+                  </h3>
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {service.features.map((feature, featureIndex) => (
+                      <li
+                        key={featureIndex}
+                        className="flex items-center text-sm text-muted-foreground font-poppins"
+                      >
+                        <div className="w-1.5 h-1.5 bg-black rounded-full mr-3"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto">
+                    <Button
+                      variant="outline"
+                      className="text-custom-red border-custom-red border-none underline gap-2"
                     >
-                      <div className="w-1.5 h-1.5 bg-black rounded-full mr-3"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto">
-                  <Button
-                    variant="outline"
-                    className="text-custom-red border-custom-red border-none underline gap-2"
-                  >
-                    Read More
-                  </Button>
+                      Read More
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       <section />

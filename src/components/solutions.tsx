@@ -2,17 +2,115 @@
 import { useState } from "react";
 import GetTouch from "./getTouch";
 
+interface TabContent {
+  title: string;
+  description: string[];
+  bulletPoints: string[];
+  image: string;
+}
+
+const tabContents: Record<string, TabContent> = {
+  "Broadcast & Media": {
+    title: "Broadcast & Media",
+    description: [
+      "We help TV networks, OTT platforms, and content owners distribute, monetize,",
+      "and protect content worldwide. Playout, cloud, and compliance services.",
+      "OTT-ready workflows with CDN, DRM, and multi-platform delivery.",
+      "Trusted reliability for linear, VOD, and digital-first audiences."
+    ],
+    bulletPoints: [
+      "End-to-end services: from creative to playout to delivery.",
+      "Multi-industry expertise proven across broadcast, enterprise, telecom, and government.",
+      "Global infrastructure spanning satellite, cloud, and IP networks.",
+      "24/7 operations and monitoring for mission-critical reliability"
+    ],
+    image: "/services1.png"
+  },
+  "Sports & Live Events": {
+    title: "Sports & Live Events",
+    description: [
+      "We help TV networks, OTT platforms, and content owners distribute, monetize,",
+      "and protect content worldwide. Playout, cloud, and compliance services.",
+      "OTT-ready workflows with CDN, DRM, and multi-platform delivery.",
+      "Trusted reliability for linear, VOD, and digital-first audiences."
+    ],
+    bulletPoints: [
+      "End-to-end services: from creative to playout to delivery.",
+      "Multi-industry expertise proven across broadcast, enterprise, telecom, and government.",
+      "Global infrastructure spanning satellite, cloud, and IP networks.",
+      "24/7 operations and monitoring for mission-critical reliability"
+    ],
+    image: "/stadium.png"
+  },
+  "Telecom & ISPs": {
+    title: "Telecom & ISPs",
+    description: [
+      "We partner with carriers, mobile operators, and ISPs to extend their reach and resilience.Fiber/IP backbone and Tier-1 IP transit",
+      "Wholesale backhaul and network redundancy.",
+      "Satellite VSAT, LEO, and MEO services for remote regions."
+    ],
+    bulletPoints: [
+      "End-to-end services: from creative to playout to delivery.",
+      "Multi-industry expertise proven across broadcast, enterprise, telecom, and government.",
+      "Global infrastructure spanning satellite, cloud, and IP networks.",
+      "24/7 operations and monitoring for mission-critical reliability"
+    ],
+    image: "/telecom.png"
+  },
+  "Enterprise & Corporate": {
+    title: "Enterprise & Corporate",
+    description: [
+      "We connect enterprises in banking, retail, energy, mining, and remote industries with secure, scalable solutions.",
+      "IoT connectivity, asset tracking, and data analytics.",
+      "Secure WAN, SD-WAN, and hybrid networks.",
+      "Cloud archiving, disaster recovery, and compliance services."
+    ],
+    bulletPoints: [
+      "End-to-end services: from creative to playout to delivery.",
+      "Multi-industry expertise proven across broadcast, enterprise, telecom, and government.",
+      "Global infrastructure spanning satellite, cloud, and IP networks.",
+      "24/7 operations and monitoring for mission-critical reliability"
+    ],
+    image: "/creative.png"
+  },
+  "Maritime & Aviation": {
+    title: "Maritime & Aviation",
+    description: [
+      "We enable fleets, vessels, and aircraft to stay connected anywhere in the world.",
+      "Broadband-over-satellite for crew, passengers, and operations.",
+      "VSAT hub platforms for maritime and aero.",
+      "IoT-enabled tracking and monitoring of critical assets."
+    ],
+    bulletPoints: [
+      "End-to-end services: from creative to playout to delivery.",
+      "Multi-industry expertise proven across broadcast, enterprise, telecom, and government.",
+      "Global infrastructure spanning satellite, cloud, and IP networks.",
+      "24/7 operations and monitoring for mission-critical reliability"
+    ],
+    image: "/maritime.png"
+  },
+  "Government & Defence": {
+    title: "Government & Defence",
+    description: [
+      "We provide secure, mission-critical communications and broadcast services for public and defense organizations.",
+      "Encrypted satellite & IP distribution.",
+      "Disaster recovery and emergency broadcasting.",
+      "Secure media management with DRM and conditional access."
+    ],
+    bulletPoints: [
+      "End-to-end services: from creative to playout to delivery.",
+      "Multi-industry expertise proven across broadcast, enterprise, telecom, and government.",
+      "Global infrastructure spanning satellite, cloud, and IP networks.",
+      "24/7 operations and monitoring for mission-critical reliability"
+    ],
+    image: "/defence.png"
+  }
+};
+
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState("Broadcast & Media");
 
-  const tabItems = [
-    "Broadcast & Media",
-    "Sports & Live Events",
-    "Telecom & ISPs",
-    "Enterprise & Corporate",
-    "Maritime & Aviation",
-    "Government & Defence",
-  ];
+  const tabItems = Object.keys(tabContents);
 
   return (
     <>
@@ -31,17 +129,18 @@ export default function ServicesPage() {
       </div>
 
       <div className=" container mx-auto py-16">
-        <div className="border-b border-gray-200">
-          <nav className="flex space-x-8 px-8">
-            {tabItems.map((item) => (
+        <div className="border-b border-custom-red">
+          <nav className="flex justify-center px-8">
+            {tabItems.map((item, index) => (
               <button
                 key={item}
                 onClick={() => setActiveTab(item)}
-                className={`py-4 px-2 text-sm font-medium border-b-2 transition-colors ${
-                  activeTab === item
-                    ? "border-red-500 text-red-500"
-                    : "border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300"
-                }`}
+                className={`py-4 px-6 text-sm font-normal transition-colors text-center ${
+                  index < tabItems.length - 1 ? "border-r border-gray-300" : ""
+                } ${activeTab === item
+                  ? "border-b-2 border-b-custom-red font-railway font-extrabold"
+                  : "text-gray-700 hover:text-gray-900"
+                  }`}
               >
                 {item}
               </button>
@@ -49,65 +148,43 @@ export default function ServicesPage() {
           </nav>
         </div>
 
-        <div className=" mx-auto py-12">
+        <div className="mx-auto py-12">
           <div className="flex items-start gap-12">
             {/* Left Content */}
             <div className="flex-1">
-              <h1 className="text-4xl font-bold text-red-500 mb-6">
-                Broadcast & Media
+              <h1 className="text-4xl font-railway font-bold text-black mb-6">
+                {tabContents[activeTab].title}
               </h1>
 
-              <div className="space-y-4 text-gray-700 mb-8">
-                <p>
-                  We help TV networks, OTT platforms, and content owners
-                  distribute, monetize, and protect content worldwide. Playout,
-                  cloud, and compliance services.
-                </p>
-                <p>
-                  OTT-ready workflows with CDN, DRM, and multi-platform
-                  delivery.
-                </p>
-                <p>
-                  Trusted reliability for linear, VOD, and digital-first
-                  audiences.
-                </p>
+              <div className="space-y-1 text-gray-700 mb-5 font-railway">
+                {tabContents[activeTab].description.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
 
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 font-railway">
                 Why Choose Us Across Industries
               </h2>
-              <ul className="space-y-2 text-gray-700">
-                <li>
-                  • End-to-end services: from creative to playout to delivery.
-                </li>
-                <li>
-                  • Multi-industry expertise proven across broadcast,
-                  enterprise, telecom, and government.
-                </li>
-                <li>
-                  • Global infrastructure spanning satellite, cloud, and IP
-                  networks.
-                </li>
-                <li>
-                  • 24/7 operations and monitoring for mission-critical
-                  reliability
-                </li>
+              <ul className="space-y-1 text-gray-700 font-railway">
+                {tabContents[activeTab].bulletPoints.map((point, index) => (
+                  <li key={index}>{point}</li>
+                ))}
               </ul>
             </div>
 
             {/* Right Image */}
             <div className="flex-shrink-0 mt-12">
               <img
-                src="/services1.png"
-                alt="Satellite dish equipment"
-                className="w-[400px] h-[400px] object-cover rounded-lg "
+                src={tabContents[activeTab].image}
+                alt={`${tabContents[activeTab].title} illustration`}
+                className="w-[400px] h-[400px] object-cover rounded-lg"
               />
             </div>
           </div>
         </div>
       </div>
 
-{/* who are we */}
+      {/* who are we */}
       <div className="relative">
         <img
           src="/services.png"
@@ -140,8 +217,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
-
-
       <GetTouch />
     </>
   );
