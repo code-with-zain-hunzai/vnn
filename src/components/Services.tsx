@@ -93,22 +93,14 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className=" bg-background relative z-0">
-
-      <div className="relative w-full">
-        <img src="/abouthero.png" alt="Coverage area" className="w-full" />
-        <h1 className="absolute inset-0 flex items-center justify-center text-white text-7xl font-bold">
-          Our Services
-        </h1>
-      </div>
-
+    <section id="services" className="py-20 bg-background relative z-0">
       <div
         className="absolute inset-0 opacity-30 z-0"
         style={{
           backgroundImage: `url('/bgDot.svg')`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "600px 433px",
-          backgroundPosition: "center",
+          backgroundRepeat: 'repeat',
+          backgroundSize: '600px 433px',
+          backgroundPosition: 'center',
         }}
       ></div>
       <div className="relative pt-20">
@@ -138,10 +130,7 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 container pt-60 relative z-50 ">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="shadow-lg rounded-tl flex flex-col h-full"
-            >
+            <div key={index} className="shadow-lg rounded-tl flex flex-col h-full">
               <div className="relative mb-6 rounded-lg overflow-hidden">
                 <img
                   src={service.image}

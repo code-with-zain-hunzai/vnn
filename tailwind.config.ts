@@ -76,7 +76,10 @@ export default {
 			},
 			fontFamily: {
 				heading: 'var(--font-heading)',
-				body: 'var(--font-body)'
+				body: 'var(--font-body)',
+				railway: 'var(--font-railway)',
+				poppins: 'var(--font-poppins)',
+				'base-neue': 'var(--font-base-neue)'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',

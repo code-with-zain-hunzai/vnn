@@ -1,15 +1,7 @@
 import { useEffect } from "react";
-import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import Header from "@/components/header";
 import Stats from "@/components/Stats";
 import Experience from "@/components/experience";
-import About from "@/components/about";
-import GetTouch from "@/components/getTouch";
-import Solutions from "@/components/solutions";
 
 const Index = () => {
   useEffect(() => {
@@ -33,13 +25,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      
       <Hero />
       <Stats />
-      <GetTouch />
       <Stats />
       <Experience />
-      
+
     </div>
   );
 };
