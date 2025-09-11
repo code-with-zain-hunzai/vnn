@@ -1,7 +1,4 @@
 import { Button } from '@/components/ui/button';
-import fiberImage from '@/assets/fiber-optic.jpg';
-import controlRoomImage from '@/assets/control-room.jpeg';
-import cloudImage from '@/assets/cloud-datacenter.jpeg';
 import { Card, CardHeader } from './ui/card';
 
 const Solution = () => {

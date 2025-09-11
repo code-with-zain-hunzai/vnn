@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./components/about";
-import Services from "./components/Services";
+import Services from "./pages/Services";
 import Contact from "./components/Contact";  
 import Solutions from "./components/solutions";
 

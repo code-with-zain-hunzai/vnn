@@ -93,7 +93,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background relative z-0">
+    <section className="py-20 bg-background relative z-0">
       <div
         className="absolute inset-0 opacity-30 z-0"
         style={{

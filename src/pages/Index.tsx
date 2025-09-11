@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Hero from '@/components/Hero';
-import Services from '@/components/Services';
+import Services from '@/components/ServiceSection';
 import Stats from '@/components/Stats';
 import Experience from '@/components/experience';
 import Support from '@/components/Support';
