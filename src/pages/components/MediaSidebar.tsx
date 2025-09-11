@@ -17,7 +17,7 @@ interface MediaSidebarProps {
 export function MediaSidebar({ items, activeItem, onItemChange, className }: MediaSidebarProps) {
   return (
     <div className={cn(
-      "w-60 bg-background border-r border-media-gray-200 h-full overflow-y-auto pr-5",
+      "max-w-xs bg-background h-full overflow-y-auto pr-5",
       className
     )}>
       <nav className="p-0">

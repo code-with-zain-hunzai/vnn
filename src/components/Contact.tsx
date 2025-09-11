@@ -38,9 +38,21 @@ export default function ContactPage() {
 
       <div className=" container mx-auto pt-24 pb-60">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Map Image Section */}
+          {/* Map Section */}
           <div className="space-y-8">
-            <img src="/contactmap.png" alt="Jakarta area map showing locations" className="w-full h-[540px] rounded-lg" />
+            <div className="w-full h-[540px] rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5!2d106.8456!3d-6.2088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e8b4c8b7%3A0x8b4c8b7!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Interactive Map - Jakarta, Indonesia"
+                className="w-full h-full"
+              />
+            </div>
           </div>
 
           {/* Contact Form Section */}
